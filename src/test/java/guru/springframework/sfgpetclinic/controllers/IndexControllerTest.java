@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.*;
 
 import java.time.Duration;
 
@@ -65,5 +66,25 @@ class IndexControllerTest {
     void testAssumptionTrueExpected() {
         //Show as disabled when assumption si not true
         assumeTrue("GURU".equalsIgnoreCase("GURU"));
+    }
+
+    @EnabledOnOs(OS.LINUX)
+    @Test
+    void testMeOnLinux() {
+    }
+
+    @EnabledOnOs(OS.MAC)
+    @Test
+    void testMeOnMac() {
+    }
+
+    @EnabledOnJre(JRE.JAVA_11)
+    @Test
+    void testMeOnJava11() {
+    }
+
+    @EnabledIfSystemProperty(named="USER", matches = "krlosh")
+    @Test
+    void testMeIfUserKrlosh() {
     }
 }
