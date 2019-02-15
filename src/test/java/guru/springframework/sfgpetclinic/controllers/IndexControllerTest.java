@@ -25,7 +25,10 @@ class IndexControllerTest {
 
     @Test
     void oupsHandler() {
-        assertTrue("asdf".equals(controller.oupsHandler()),()->"This is some expensive " + "Message to build" + " for" +
-                " my test");
+        assertThrows(ValueNotFoundException.class, ()->{
+            controller.oupsHandler();
+        });
+        /*assertTrue("asdf".equals(controller.oupsHandler()),()->"This is some expensive " + "Message to build" + " for" +
+                " my test");*/
     }
 }
