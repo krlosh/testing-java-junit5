@@ -3,6 +3,8 @@ package guru.springframework.sfgpetclinic.model;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 class OwnerTest {
 
@@ -21,5 +23,7 @@ class OwnerTest {
                         () -> assertEquals("12312312322",ownerTest.getTelephone(), "Telephone did not match")
                 )
         );
+
+        assertThat(ownerTest.getCity(), is("Key West"));
     }
 }
