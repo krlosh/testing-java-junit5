@@ -8,6 +8,7 @@ import org.junit.jupiter.api.condition.*;
 
 import java.time.Duration;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
@@ -26,6 +27,8 @@ class IndexControllerTest {
         //Also lambda expression should be used but although it's only evaluated in failure conditions it's more
         // expensive
         assertEquals("index", controller.index(),"Wrong view returned");
+
+        assertThat(controller.index()).isEqualTo("index");
     }
 
 
