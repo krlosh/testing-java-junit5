@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 class IndexControllerTest {
 
@@ -52,5 +53,17 @@ class IndexControllerTest {
             Thread.sleep(5000);
             System.out.println("I'm here");
         });
+    }
+
+    @Test
+    void testAssumptionTrue() {
+        //Show as disabled when assumption si not true
+        assumeTrue("CI".equalsIgnoreCase(System.getenv("ENVIRONMENT")));
+    }
+
+    @Test
+    void testAssumptionTrueExpected() {
+        //Show as disabled when assumption si not true
+        assumeTrue("GURU".equalsIgnoreCase("GURU"));
     }
 }
