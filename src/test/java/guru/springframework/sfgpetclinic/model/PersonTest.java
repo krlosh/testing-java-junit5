@@ -26,14 +26,4 @@ class PersonTest implements ModelTests {
                         person.getLastName(), "Last name comparison failed"));
     }
 
-    @RepeatedTest(value = 10, name = "{displayName}: {currentRepetition} / {totalRepetitions}")
-    @DisplayName("My repeated test")
-    void repeatedTests(){
-        //TODO -impl
-    }
-
-    @RepeatedTest(5)
-    void repeatedTestWithDI(TestInfo testInfo, RepetitionInfo repetitionInfo) {
-        System.out.println(testInfo.getDisplayName() + ":"+repetitionInfo.getCurrentRepetition());
-    }
 }
