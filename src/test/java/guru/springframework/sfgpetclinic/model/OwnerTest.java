@@ -1,5 +1,6 @@
 package guru.springframework.sfgpetclinic.model;
 
+import guru.springframework.sfgpetclinic.CustomerArgsProvider;
 import guru.springframework.sfgpetclinic.ModelTests;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -77,5 +78,12 @@ class OwnerTest implements ModelTests {
                 Arguments.of("XX" , 4 ,7),
                 Arguments.of("ZZ" , 6 ,9)
         );
+    }
+
+    @DisplayName("Custom provide test")
+    @ParameterizedTest(name="{displayName} - [{index}] {arguments}")
+    @ArgumentsSource(CustomerArgsProvider.class)
+    void testFromProvider(String state, int val1, int val2) {
+        System.out.println("state: " +state +" = "+val1 +" :"+val2);
     }
 }
