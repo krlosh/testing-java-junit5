@@ -2,6 +2,8 @@ package guru.springframework.sfgpetclinic.model;
 
 import guru.springframework.sfgpetclinic.ModelTests;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.hamcrest.core.Is.is;
@@ -26,5 +28,11 @@ class OwnerTest implements ModelTests {
         );
 
         assertThat(ownerTest.getCity(), is("Key West"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"One" , "Two", "Three"})
+    public void testParameterizedTest(String val){
+        System.out.println("VALUE: " + val);
     }
 }
