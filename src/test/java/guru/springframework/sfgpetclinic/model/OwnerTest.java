@@ -4,6 +4,7 @@ import guru.springframework.sfgpetclinic.ModelTests;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -34,7 +35,14 @@ class OwnerTest implements ModelTests {
     @DisplayName("Value Source test")
     @ParameterizedTest(name="{displayName} - [{index}] {arguments}")
     @ValueSource(strings = {"One" , "Two", "Three"})
-    public void testParameterizedTest(String val){
+    void testParameterizedTest(String val){
         System.out.println("VALUE: " + val);
+    }
+
+    @DisplayName("Enum Source test")
+    @ParameterizedTest(name="{displayName} - [{index}] {arguments}")
+    @EnumSource(OwnerType.class)
+    void testEnum(OwnerType type) {
+        System.out.println("TYPE: " +type);
     }
 }
